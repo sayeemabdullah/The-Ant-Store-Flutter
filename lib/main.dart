@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Just Another Omline MArket',
+      title: 'Ant Online Store',
       home: LoginPage(),
     );
   }
@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 18.0),
@@ -31,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 120,),
                 Image.asset('assets/logo_transparent.png'),
                 SizedBox(height: 5,),
-                Text('Just Another Online Store',style: TextStyle(fontSize: 20,color: Colors.blueAccent),)
               ],
             ),
             SizedBox(height: 60.0,),
@@ -51,13 +51,14 @@ class _LoginPageState extends State<LoginPage> {
                 filled: true,
               ),
             ),
-            SizedBox(height: 30.0,),
+            SizedBox(height: 50.0,),
             Column(
               children: <Widget>[
                 ButtonTheme(
                   height: 50,
-                  disabledColor: Colors.blueAccent,
+                  disabledColor: Colors.lightBlue,
                   child: RaisedButton(
+                    disabledElevation: 4.0,
                     onPressed: null,
                     child: Text('Login',style: TextStyle(fontSize: 20,color: Colors.white),),
                   ),
