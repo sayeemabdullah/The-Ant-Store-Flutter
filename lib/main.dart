@@ -28,8 +28,40 @@ class _LoginPageState extends State<LoginPage> {
           children: <Widget>[
             Column(
               children: <Widget>[
-                SizedBox(height: 80,),
+                SizedBox(height: 120,),
                 Image.asset('assets/logo_transparent.png'),
+                SizedBox(height: 5,),
+                Text('Just Another Online Store',style: TextStyle(fontSize: 20,color: Colors.blueAccent),)
+              ],
+            ),
+            SizedBox(height: 60.0,),
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Email",
+                labelStyle: TextStyle(fontSize: 20),
+                filled: true,
+              ),
+            ),
+            SizedBox(height: 20.0,),
+            TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: "Password",
+                labelStyle: TextStyle(fontSize: 20),
+                filled: true,
+              ),
+            ),
+            SizedBox(height: 30.0,),
+            Column(
+              children: <Widget>[
+                ButtonTheme(
+                  height: 50,
+                  disabledColor: Colors.blueAccent,
+                  child: RaisedButton(
+                    onPressed: null,
+                    child: Text('Login',style: TextStyle(fontSize: 20,color: Colors.white),),
+                  ),
+                )
               ],
             ),
           ],
