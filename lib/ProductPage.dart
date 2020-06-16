@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+//import 'package:flutter_basic_task/ProductDetailPage.dart';
 
 class ProductPage extends StatefulWidget {
   @override
@@ -44,8 +45,9 @@ class _ProductPageState extends State<ProductPage> {
                elevation:5,
                   margin: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
                   shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0.0),
+                  borderRadius: BorderRadius.circular(15.0),
                   ),
+                  
               child: ListTile(
                 onTap: (){},
                 leading: Image.asset('assets/${productsPicture[index]}',
