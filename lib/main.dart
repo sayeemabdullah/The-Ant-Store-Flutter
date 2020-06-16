@@ -11,7 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ant Online Store',
+      title: 'The Ant Store',
+      theme: ThemeData(
+        primaryColor: Colors.red,
+      ),
       home: LoginPage(),
     );
   }
@@ -78,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               children: <Widget>[
                 SizedBox(height: 120,),
-                Image.asset('assets/logo_transparent.png'),
+                Image.asset('assets/logo_trans.png'),
                 SizedBox(height: 5,),
               ],
             ),
@@ -106,9 +109,10 @@ class _LoginPageState extends State<LoginPage> {
               children: <Widget>[
                 ButtonTheme(
                   height: 50,
-                  disabledColor: Colors.lightBlue,
+                  disabledColor: Colors.redAccent,
                   child: RaisedButton(
                     disabledElevation: 4.0,
+                    color: Colors.red,
                     onPressed: (){
                       getmail = mail.text;
                       getpass = pass.text;
