@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_task/ProductPage.dart';
+
+//Email : abcd@theantopolis.com
+//Password: 12345678
 
 void main() => runApp(MyApp());
 
@@ -19,6 +23,30 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController mail = new TextEditingController();
+  TextEditingController pass = new TextEditingController();
+  String getmail , getpass;
+
+    void _showDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("ERROR!!"),
+          content: new Text("Please enter correct email / password."),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Okay!"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 60.0,),
             TextField(
+              controller: mail,
               decoration: InputDecoration(
                 labelText: "Email",
                 labelStyle: TextStyle(fontSize: 20),
@@ -44,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 20.0,),
             TextField(
+              controller: pass,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: "Password",
@@ -59,7 +89,19 @@ class _LoginPageState extends State<LoginPage> {
                   disabledColor: Colors.lightBlue,
                   child: RaisedButton(
                     disabledElevation: 4.0,
-                    onPressed: null,
+                    onPressed: (){
+                      getmail = mail.text;
+                      getpass = pass.text;
+                      //print(getpass);
+                      if(getmail=="abcd@theantopolis.com" && getpass=="12345678"){
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return ProductPage();
+                      }));
+                      }
+                      else{
+                        _showDialog();
+                      }
+                    },
                     child: Text('Login',style: TextStyle(fontSize: 20,color: Colors.white),),
                   ),
                 )
