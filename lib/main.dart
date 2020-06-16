@@ -46,6 +46,26 @@ class _LoginPageState extends State<LoginPage> {
       },
     );
   }
+
+  void _showValid() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: new Text("ERROR!!"),
+          content: new Text("The email is not valid."),
+          actions: <Widget>[
+            new FlatButton(
+              child: new Text("Okay!"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -92,8 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: (){
                       getmail = mail.text;
                       getpass = pass.text;
+                      bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(getmail);
+                      if(emailValid==false){
+                        _showValid();
+                      }
                       //print(getpass);
-                      if(getmail=="abcd@theantopolis.com" && getpass=="12345678"){
+                      else if(getmail=="abcd@theantopolis.com" && getpass=="12345678"){
                         Navigator.push(context, MaterialPageRoute(builder: (context){
                         return ProductPage();
                       }));
