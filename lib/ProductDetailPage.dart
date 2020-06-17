@@ -28,6 +28,16 @@ class ProductDetailPage  extends StatelessWidget {
       children:[
         Image.asset('assets/${products.picture}'),
         SizedBox(height:20.0),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star_half)
+            ],
+          ),
         Text(products.name,
           style:TextStyle(
             fontSize: 30.0,
@@ -39,6 +49,7 @@ class ProductDetailPage  extends StatelessWidget {
             color: Colors.deepOrange
           ),
           ),
+        //SizedBox(height: 10.0,),
         SizedBox(height:20.0),
         Text(products.description,
           style: TextStyle(
