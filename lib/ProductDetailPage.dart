@@ -21,7 +21,33 @@ class ProductDetailPage  extends StatelessWidget {
             ), onPressed: null)
           ],
     ),
-    body: Image.asset('assets/${products.picture}'),
-    );
+    body:SingleChildScrollView(
+    child:
+    new Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children:[
+        Image.asset('assets/${products.picture}'),
+        SizedBox(height:20.0),
+        Text(products.name,
+          style:TextStyle(
+            fontSize: 30.0,
+          ),
+          ),
+        Text(products.price,
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.deepOrange
+          ),
+          ),
+        SizedBox(height:20.0),
+        Text(products.description,
+          style: TextStyle(
+            fontSize: 18.0,
+          ),
+        ),
+      ],
+    ),
+    ),
+        );
   }
 }
