@@ -47,7 +47,7 @@ class _ProductPageState extends State<ProductPage> {
               child: ListTile(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return ProductDetailPage();
+                    return ProductDetailPage(products : products[index]);
                     }));
                 },
                 leading: Image.asset('assets/${products[index].picture}',

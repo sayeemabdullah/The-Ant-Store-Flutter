@@ -1,24 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_basic_task/product.dart';
+//import 'package:flutter_basic_task/product.dart';
 
-class ProductDetailPage extends StatefulWidget {
-  @override
-  _ProductDetailPageState createState() => _ProductDetailPageState();
-}
+class ProductDetailPage  extends StatelessWidget {
 
-class _ProductDetailPageState extends State<ProductDetailPage> {
+  final Product products;
+  ProductDetailPage({this.products});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text('The Ant Store'),
-          backgroundColor: Colors.red,
-          actions: <Widget>[
-            IconButton(icon: Icon(
+      body: Center(
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              leading: BackButton(
+                color: Colors.red,
+                ),
+              title: Text('Product Details',
+              style: TextStyle(color: Colors.red),),
+              backgroundColor: Colors.white,
+              expandedHeight: 350.0,
+              actions: <Widget>[
+                IconButton(icon: Icon(
               Icons.shopping_cart,
-              color: Colors.white,
+              color: Colors.red,
             ), onPressed: null)
+              ],
+              flexibleSpace: FlexibleSpaceBar(
+                centerTitle: true,
+                title: Text(products.name,
+                style: TextStyle(color: Colors.red),),
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.asset('assets/${products.picture}',
+                    fit: BoxFit.cover,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
-    ),
+        )
+      ),
     );
   }
 }
